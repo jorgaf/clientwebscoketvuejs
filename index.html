@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My socrative</title>
+    <meta name="description" content="A educational project">
+    <meta name="author" content="@jorgaf">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+<body>
+    <h1>Welcome to my socrative</h1>
+    <div id="app">
+        <div v-if="!status">
+            <label for="roomkey">Room key:</label>
+            <input v-model="key" type="text" id="roomkey" value="" @keyup.enter=connect>
+        </div>
+        <div v-if="status ==='connected'">
+            <h2>Quiz: {{ survey.name }}</h2>
+            <div v-for="question in survey.questions">
+                <h4>{{ question.text }}</h4>
+                <q-option v-for="opt in question.options"
+                          v-bind:option="opt"
+                          v-bind:groupid="question.id"
+                ></q-option>
+            </div>
+        </div>
+        <pre>
+           {{ $data }}
+         </pre>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
