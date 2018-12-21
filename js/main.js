@@ -1,8 +1,11 @@
 Vue.component('q-option', {
     props: ['option','groupid'],
     template: `
-        <div>
-            <input type="radio" :name="groupid" :value="option.id"> {{ option.text }}
+        <div class="form-check">
+            <input class="form-check-input" type="radio" :name="groupid" :value="option.id" :id="groupid +'_'+ option.id"> 
+            <label class="form-check-label" :for="groupid +'_'+ option.id">
+                {{ option.text }}
+            </label>
         </div>        
                        
     `
@@ -25,7 +28,7 @@ new Vue({
         openWs() {
             this.status = 'connected';
             console.log('connected');
-            this.sendMessage(this.status);
+            this.sendMessage(this.key);
         },
         errorWs(evt) {
             this.status = 'error';
