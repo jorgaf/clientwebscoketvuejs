@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student's list</title>
+    <meta name="description" content="A educational project">
+    <meta name="author" content="@jorgaf">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Lista de estudiantes</h1>
+        </div>
+        <div id="app">
+            <ul class="list-group">
+                <student v-for="student in students" :student="student"></student>
+            </ul>
+            <pre>
+               {{ $data }}
+             </pre>
+
+        </div>
+    </div>
+
+    <template id="template-student">
+        <li class="list-group-item">
+            {{ student.lastName }} {{ student.name }} {{ student.age }}
+        </li>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+    <script src="js/list.js"></script>
+</body>
+</html>
