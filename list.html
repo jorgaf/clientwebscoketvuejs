@@ -27,6 +27,7 @@
     <template id="template-student">
         <li class="list-group-item">
             {{ student.lastName }} {{ student.name }} {{ student.age }}
+            <button @click="deleteStudent(student)" class="btn btn-danger">Eliminar</button>
         </li>
     </template>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
